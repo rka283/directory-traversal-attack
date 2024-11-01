@@ -1,0 +1,4 @@
+:/var/html
+/passwd
+/bin/chs 
+root 
