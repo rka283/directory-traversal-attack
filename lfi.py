@@ -1,10 +1,10 @@
 import requests
+a=input("enter the url")
 response = None 
 with open("payload.txt","r") as f:
     attack=f.read()
 with open("value.txt","r") as fi:
     value=fi.read()
-a=input("enter the url")
 try:
   response=a.head(a)
 except:
