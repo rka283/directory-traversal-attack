@@ -1,25 +1,18 @@
 import requests
-a=input("enter the url")
-response = None 
+from urllib.parse import urlparse
+a=input("enter any url")
 with open("payload.txt","r") as f:
-    attack=f.read()
-with open("value.txt","r") as fi:
-    value=fi.read()
-try:
-  response=a.head(a)
-except:
-    print("its not vulnerable ")
-if response == 200:
- a=a.remove(response)
- for i in attack:
-   k=a+i
-   url=requests.get(k)
-   if url == 200:
-    if value in url.txt:
-      print("its vulnerable")
+   attack=f.read()
+with open("value.txt","r") as f1:
+  value=f1.read() 
+parsed_url=urlparse(a)
+path=urlparse(a)
+path=parsed_url.path
+directory=path.rstrip('/').rsplit('/',1)[0]
+if directory:
+   url=a+attack
+   response=requests.get(url)
+   if value in response.text:
+      print("url is vulnerable",response)
    else:
-      print("its not")
-      
-  
-
-
+      print("url is not vulnerable")
